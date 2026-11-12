@@ -24,7 +24,7 @@ def base_converter(number_str, from_base, to_base):
 
 if __name__ == '__main__':
   print('Калькулятор систем счисления')
-  print("Для завершения работы введите 'end' вместо числа.\n")
+  print("Для завершения работы введите 'выход' вместо числа.\n")
 
   while True:
     num = input('Введите число: ').strip()
