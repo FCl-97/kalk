@@ -1,8 +1,9 @@
 def base_converter(number_str, from_base, to_base):
+
   try:
     decimal_number = int(number_str, from_base)
   except ValueError:
-    return 'Ошибка: число не соответствует исходной системе счисления.'
+    return 'Ошибка: число или основание введены некорректно.'
 
   if decimal_number == 0:
     return '0'
@@ -20,11 +21,24 @@ def base_converter(number_str, from_base, to_base):
 
   return ''.join(reversed(res))
 
+
 if __name__ == '__main__':
   print('Калькулятор систем счисления')
-  num = input('Введите число: ').strip()
-  base_from = int(input('Исходная система счисления (2-36): '))
-  base_to = int(input('Целевая система счисления (2-36): '))
+  print("Для завершения работы введите 'end' вместо числа.\n")
 
-  result = base_converter(num, base_from, base_to)
-  print(f'Результат: {result}')
+  while True:
+    num = input('Введите число: ').strip()
+
+    if num.lower() in ('end', 'выход', 'q'):
+      print('Работа программы завершена.')
+      break
+
+    try:
+      base_from = int(input('Исходная система счисления (2-36): '))
+      base_to = int(input('Целевая система счисления (2-36): '))
+    except ValueError:
+      print('Ошибка: основание системы должно быть целым числом!\n')
+      continue
+
+    result = base_converter(num, base_from, base_to)
+    print(f'Результат: {result}\n' + '-' * 35)
