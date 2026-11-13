@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     try:
       base_from = int(input('Исходная система счисления (2-36): '))
-      base_to = int(input('Целевая система счисления (2-36): '))
+      base_to = int(input('Конечная система счисления (2-36): '))
     except ValueError:
       print('Ошибка: основание системы должно быть целым числом!\n')
       continue
